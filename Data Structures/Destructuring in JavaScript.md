@@ -1,6 +1,6 @@
 [Link to Source File](script.js)
 
-##i. Array Destructuring
+## i. Array Destructuring
 
 1.  Array Destructuring is used to store Array values into variables 2. To destructure an array we need variables and we wrap those variables in square([]) brackets
 
@@ -24,7 +24,7 @@
     [l, m] = [m, l];
     console.log(l, m);
 
-##ii. Object Destructuring
+## ii. Object Destructuring
 
 1.  Object Destructuring is part of JavaScript.
 2.  It helps to extract and store the values from object into varibles.
