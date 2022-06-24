@@ -34,6 +34,34 @@ console.log(aa, bb, cc);
 [l, m] = [m, l];
 console.log(l, m);
 
-//Object Destructuring
+//Object Destructuring and assigning new name to call it
 let { mainMenu, name: Place_Name } = restaurant;
-console.log(mainMenu, name);
+console.log(mainMenu, Place_Name);
+
+// Destructuring Nested Objects
+
+let {
+  openingHours: { thu, fri },
+} = restaurant;
+console.log(thu, fri);
+
+let a = 24;
+let b = 43;
+
+const newObject = { a: 54, b: 29, c: 184 };
+({ a, b } = newObject);
+console.log(a, b);
+
+// Passing object to function
+
+const demo = function ({ xx = 1, yy = 2, zz = 3 }) {
+  console.log(yy, xx, zz);
+};
+
+const dummyObject = {
+  xx: 22,
+  yy: 33,
+  zz: 44,
+};
+
+demo(dummyObject);
