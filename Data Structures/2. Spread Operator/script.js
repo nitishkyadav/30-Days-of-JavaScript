@@ -57,3 +57,12 @@ console.log(newRestaurant);
 //Creating new array from objects
 const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 console.log(menu);
+
+///
+const sum1 = function (...numbers) {
+  console.log(numbers);
+};
+
+sum1(2, 4, 6);
+const xyz = [22, 44, 66];
+sum1(...xyz);
