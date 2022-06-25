@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // Demonstrating the use of using Index as well as Spread Operator(...) approach to create arrays
 const arr = [1, 2, 3, 4];
@@ -23,11 +23,11 @@ add(...sum);
 // Demonstrating (...) on objects
 
 const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  name: "Classico Italiano",
+  location: "Via Angelo Tavanti 23, Firenze, Italy",
+  categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+  mainMenu: ["Pizza", "Pasta", "Risotto"],
 
   openingHours: {
     thu: {
@@ -46,7 +46,7 @@ const restaurant = {
 };
 
 const copyOfRestaurant = { ...restaurant };
-copyOfRestaurant.founder = 'Nitish';
+copyOfRestaurant.founder = "Nitish";
 console.log(copyOfRestaurant.founder);
 console.log(restaurant.founder);
 

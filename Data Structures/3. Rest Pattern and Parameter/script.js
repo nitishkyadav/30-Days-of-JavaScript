@@ -64,3 +64,8 @@ const restaurant = {
 
 const { sat, ...weekdays } = restaurant.openingHours;
 console.log(sat, weekdays);
+
+// Example 8:
+console.log("Example 8:")
+
+const [aa, bb, ...others121, cc]= [10, 20, 30, 40, 50 ,60 ,70 ,80 ,90 ,100];

@@ -5,7 +5,7 @@
 ### Rest Pattern for Arrays
 
 1.  Rest Pattern(...) is just opposite of spread operator.
-2.  Spread operator unpacks the array into individual elements but Rest Pattern clubs the individual array elements / object properties into array or object.
+2.  Spread operator unpacks the array into individual elements/variables but Rest Pattern clubs the individual elements/variables / object properties into array or object.
 
     Example 1:
 
@@ -133,3 +133,16 @@
 
         {open: 0, close: 24},
         thu:{open: 12, close: 12} , fri: {open: 11, close: 23}
+
+7.  Rest Pattern should always be used in the end while destructuring arrays.
+
+    Example: 8
+
+        const [a, b, ...others, c]= [10, 20, 30, 40, 50 ,60 ,70 ,80 ,90 ,100];
+
+    Output:
+
+        Uncaught SyntaxError: Rest element must be last element (at script.js:71:16)
+
+    In this case, when rest pattern is used before end while destructuring, by logic a and b should store 10 and 20 and rest all of the variables should be packed into array and must be assigned to "others" and "c" should be undefined which will result to error.
+    That's why, Rest Pattern is used in the end while destructuring.
