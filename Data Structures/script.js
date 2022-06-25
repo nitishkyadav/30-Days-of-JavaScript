@@ -65,3 +65,8 @@ const dummyObject = {
 };
 
 demo(dummyObject);
+
+//Spread operator
+const arr1 = ['aaa', 'bbb', 'ccc'];
+const arr2 = [9, 8, ...arr1, 7];
+console.log(arr2);
