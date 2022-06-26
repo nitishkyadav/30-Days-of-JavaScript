@@ -6,3 +6,9 @@
 # June 25, 2022
 
 3. Learnt about Rest Pattern and Parameter in JS
+
+# June 26,2022
+
+4. Learned about Short Circuiting in JS using Logical OR( || ) and Logical AND (&&) and usage of Null Collision Operator(??)
+
+5. Solved a coding exercise using all the concepts learned from 24th June to June 26th.
