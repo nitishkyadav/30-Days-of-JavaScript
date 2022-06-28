@@ -12,3 +12,11 @@
 4. Learned about Short Circuiting in JS using Logical OR( || ) and Logical AND (&&) and usage of Null Collision Operator(??)
 
 5. Solved a coding exercise using all the concepts learned from 24th June to June 26th.
+
+# June 27, 2022
+
+6. Learned about for-of Loop, Enhanced Object Literal, Optional Chaining(?) and started Coding Challenge 2
+
+# June 28, 2022
+
+7. Solved 3rd Coding Challenge, learnt about Sets and Maps
