@@ -112,3 +112,24 @@ So Logical And(&&) and Logical OR(||) can be used in place of if-else block but 
     -> In 3rd console.log(), it checked whether _Tue_ exists. Since it doesn't exist, it returned _undfined_ and will not check for _.open_.
 
     -> In 4th console.log(), it will check for whole _Tue.open_. Since _Tue_ doesn't exist therefore it's _undefined_ and we are trying to access the property for _undefined_ we will get _TypeError_
+
+3.  Optional Chaining(?) is used along with Nullish Coaleascing Operator(??)
+
+    _Example_
+
+        const openingHours= {
+                Mon:{
+                    open: 0,
+                    close: 23;
+                }
+            };
+
+            console.log(openingHours.Mon?.open ?? "Monday doesn't exist");
+            console.log(openingHours.Tue?.open ?? "Tuesday doesn't exist");
+
+    _Output:_
+
+        0
+        Tuesday doesn't exist
+
+    Here, since _Tue_ doesn't exist it _returned undefined_ and _undefined ?? "Tuesday doesn't exist"_ returned the later part. Hence the output.
