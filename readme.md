@@ -21,6 +21,14 @@
 
 7. Solved 3rd Coding Challenge, learnt about Sets and Maps
 
-# June 29,2022
+# June 29/30,2022
 
 8. Documented about Maps and Sets and revised till whatever learnt till today.
+
+# June 2,2022
+
+9. Learnt about Strings and their methods
+
+# June 3, 2022
+
+10. Learnt about .call(), .apply(), .bind() and documented about .call() and .apply()
