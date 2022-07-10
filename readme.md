@@ -32,3 +32,13 @@
 # June 3, 2022
 
 10. Learnt about .call(), .apply(), .bind() and documented about .call() and .apply()
+
+# June 4, 2022
+
+11. Documented about .bind() and how it works.
+
+# June 8-10, 2022
+
+12. Completed coding challenge related with .bind().
+13. Leant about IIFE(Immediately Invoked Function Expression).
+14. Learnt about closure and solved a coding challenge having combination of IIFE, closure and Event Handler.

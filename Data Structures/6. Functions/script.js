@@ -42,3 +42,17 @@ printFullName.call(name2, ...states);
 
 printFullName.apply(name1, states);
 printFullName.apply(name2, states);
+
+// Using .bind() method
+
+const nameNitish = printFullName.bind(name1);
+nameNitish(...states);
+
+const nameKamini = printFullName.bind(name2);
+nameKamini(...states);
+
+const nameNitishCopy = printFullName.bind(name1, "Ludhiana");
+nameNitishCopy("Punjab");
+
+const nameKaminiCopy = printFullName.bind(name2, "Ludhiana");
+nameKaminiCopy("Punjab");

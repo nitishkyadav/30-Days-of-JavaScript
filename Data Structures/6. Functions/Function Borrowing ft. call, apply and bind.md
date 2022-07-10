@@ -58,3 +58,66 @@
         printFullName.apply(name2, states);
 
     Example 2 gives same output as Example 1
+
+## .bind() method
+
+8.  _.bind()_ method works in a different way. Instead of calling the method from object and setting its this keyword to new object, it returns a new function along with reference set to the object passed as first argument which can be stored in a variable and can be called via that variable.
+
+    Example 3: Let's see how .bind() method can be used in Example 2
+
+         const name1={
+        firstName="Nitish",
+        lastName="Yadav",
+        };
+
+        const name2={
+        firstName="Kamini",
+        lastName="Yadav",
+        }
+
+        function printFullName(district, state) {
+        console.log(`${this.firstName} ${this.lastName} from ${district} , ${state}`);
+        }
+
+        const states=["Ludhiana","Punjab"];
+
+        const nameNitish=printFullName.bind(name1);
+        nameNitish(...states);
+
+        const nameKamini=printFullName.bind(name2);
+        nameKamini(...states);
+
+9.  In _.bind()_ method we can define the arguments during returning new function. It's called _Partial Application_
+
+    Example 4: Let's see how we can use partial application
+
+        const name1={
+        firstName="Nitish",
+        lastName="Yadav",
+        };
+
+        const name2={
+        firstName="Kamini",
+        lastName="Yadav",
+        }
+
+        function printFullName(district, state) {
+        console.log(`${this.firstName} ${this.lastName} from ${district} , ${state}`);
+        }
+
+        const states=["Ludhiana","Punjab"];
+
+        const nameNitishCopy = printFullName.bind(name1, "Ludhiana");
+        nameNitishCopy("Punjab");
+
+        const nameKaminiCopy = printFullName.bind(name2, "Ludhiana");
+        nameKaminiCopy("Punjab");
+
+    Output:
+
+        Nitish Yadav from Ludhiana, Punjab
+        Kamini Yadav from Ludhiana, Punjab
+
+10. Among all of these _.bind()_ method is most important because when we use the object's function as _callback_ function in _event handlers_.
+    In Event Handler functions, takes a function to call when the event happens and in _event handlers this keyword points to the element on which the event listener is attached_.
+    Among .call(), .apply() and .bind() , .call() and .apply() calls the function but .bind() returns a new function. Therefore we use .bind() method to refer to the _this_ object in event listeners.
