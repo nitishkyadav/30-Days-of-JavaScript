@@ -25,20 +25,25 @@
 
 8. Documented about Maps and Sets and revised till whatever learnt till today.
 
-# June 2,2022
+# July 2,2022
 
 9. Learnt about Strings and their methods
 
-# June 3, 2022
+# July 3, 2022
 
 10. Learnt about .call(), .apply(), .bind() and documented about .call() and .apply()
 
-# June 4, 2022
+# July 4, 2022
 
 11. Documented about .bind() and how it works.
 
-# June 8-10, 2022
+# July 8-10, 2022
 
 12. Completed coding challenge related with .bind().
 13. Leant about IIFE(Immediately Invoked Function Expression).
 14. Learnt about closure and solved a coding challenge having combination of IIFE, closure and Event Handler.
+
+# June 16-17, 2022
+
+15. Learnt about .slice() , .splice(), .reverse() methods in Array.
+16. Started working on Bankist Project and learned about _DOM.insertAdjacentHTML_ and used in Bankist Project
