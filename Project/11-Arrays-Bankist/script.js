@@ -80,18 +80,128 @@ const displayMovements = function (movements) {
     if (mov > 0) {
       transactionType = 'deposit';
     }
-    // Created HTML code block 
+    // Created HTML code block
     const addHtml = ` <div class="movements__row">
-    <div class="movements__type movements__type--${transactionType}">${i + 1} ${transactionType}</div>
+    <div class="movements__type movements__type--${transactionType}">${
+      i + 1
+    } ${transactionType}</div>
     <div class="movements__date">3 days ago</div>
     <div class="movements__value">${mov}€</div>
     </div>`;
 
     // Added addHtml code block to the HTML document
     containerMovements.insertAdjacentHTML('afterbegin', addHtml);
-    // movements: [200, -200, 340, -300, -20, 50, 400, -460],
   });
 };
-displayMovements(account3.movements);
 
 /////////////////////////////////////////////////
+
+// Using .map()
+
+// Example 1:
+const movements = [200, -200, 340, -300, -20, 50, 400, -460];
+const euroToUsd = 1.1;
+
+const newMovements = movements.map(function (mov) {
+  return mov * euroToUsd;
+});
+
+// Using arraow function for same
+const newMovements1 = movements.map(mov => {
+  return mov * euroToUsd * 2;
+});
+
+// Using for
+const createNickNames = function (arr) {
+  arr.nickName = arr.owner
+    .toLowerCase()
+    .split(' ')
+    .map(function (val) {
+      return val[0];
+    })
+    .join('');
+  return arr.nickName;
+};
+createNickNames(account1);
+createNickNames(account2);
+createNickNames(account3);
+createNickNames(account4);
+// console.log(createNickNames(account1));
+
+// Using reduce to calculate total balance of the account
+function displayBalance(account) {
+  account.balance = account.movements.reduce(function (acc, mov) {
+    return acc + mov;
+  }, 0);
+  labelBalance.textContent = `${account.balance} EUR`;
+  return account.balance;
+}
+
+const calcDispalySummary = function (account) {
+  const inFlow = account.movements
+    .filter(arr => arr > 0)
+    .reduce((acc, arr) => acc + arr, 0);
+  labelSumIn.textContent = `${inFlow}€`;
+
+  const outFlow = account.movements
+    .filter(arr => arr < 0)
+    .reduce((acc, arr) => acc + arr, 0);
+  labelSumOut.textContent = `${outFlow}€`;
+
+  const interest = account.movements
+    .filter((arr, i, array) => arr > 0)
+    .map(arr => (arr * account.interestRate) / 100)
+    .filter(arr => arr >= 1)
+    .reduce((acc, arr) => acc + arr, 0);
+  labelSumInterest.textContent = `${interest}€`;
+};
+
+//////////////////////////////// Implementing Login Functionality //////////////////////////////////////
+
+let currentCustomer10 = null;
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+  console.log('Login');
+  currentCustomer10 = accounts.find(
+    acc => acc.nickName === inputLoginUsername.value
+  );
+  console.log(currentCustomer10);
+
+  if (currentCustomer10?.pin === Number(inputLoginPin.value)) {
+    containerApp.style.opacity = 100;
+    labelWelcome.textContent = `Welcome Back!! ${
+      currentCustomer10.owner.split(' ')[0]
+    }`;
+
+    displayMovements(currentCustomer10.movements);
+    displayBalance(currentCustomer10);
+    calcDispalySummary(currentCustomer10);
+    inputLoginPin.value = inputLoginUsername.value = '';
+    inputLoginPin.blur();
+  }
+});
+
+const updateUI = function (account) {
+  displayBalance(account);
+
+  calcDispalySummary(account);
+
+  displayMovements(account.movements);
+};
+
+////////////////////////////////////// Transferring the funds ////////////////////////////////////////
+let personToTransfer;
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  personToTransfer = accounts.find(
+    acc => acc.nickName === inputTransferTo.value
+  );
+  if (currentCustomer10 !== personToTransfer && personToTransfer?.nickName) {
+    currentCustomer10.movements.push(-Number(inputTransferAmount.value));
+    personToTransfer.movements.push(Number(inputTransferAmount.value));
+
+    updateUI(currentCustomer10);
+    inputTransferAmount.blur();
+  }
+});

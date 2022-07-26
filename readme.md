@@ -47,3 +47,17 @@
 
 15. Learnt about .slice() , .splice(), .reverse() methods in Array.
 16. Started working on Bankist Project and learned about _DOM.insertAdjacentHTML_ and used in Bankist Project
+
+# June 18 to 26, 2022
+
+17. Learnt about .map(), filter(), reduce() and .find() methods on Array.
+18. Completed .map(), .filter(), .reduce() from Namaste JavaScript.
+19. Started working on Bankist application.
+
+    i. Used DOM API along with to generate nickName for particular account holder which is used to simulate login kind of functionality on the UI.
+
+    ii. Used map to calculate total balance for particular account which is displayed over the UI.
+
+    iii. Used filter method to show the deposits and withdrawls data.
+
+    iv. Implemented Funds transfer functionality in the UI.
