@@ -86,7 +86,7 @@ const displayMovements = function (movements) {
       i + 1
     } ${transactionType}</div>
     <div class="movements__date">3 days ago</div>
-    <div class="movements__value">${mov}€</div>
+    <div class="movements__value">${mov.toFixed(2)}€</div>
     </div>`;
 
     // Added addHtml code block to the HTML document
@@ -133,7 +133,7 @@ function displayBalance(account) {
   account.balance = account.movements.reduce(function (acc, mov) {
     return acc + mov;
   }, 0);
-  labelBalance.textContent = `${account.balance} EUR`;
+  labelBalance.textContent = `${account.balance.toFixed(2)} EUR`;
   return account.balance;
 }
 
@@ -141,19 +141,19 @@ const calcDispalySummary = function (account) {
   const inFlow = account.movements
     .filter(arr => arr > 0)
     .reduce((acc, arr) => acc + arr, 0);
-  labelSumIn.textContent = `${inFlow}€`;
+  labelSumIn.textContent = `${inFlow.toFixed(2)}€`;
 
   const outFlow = account.movements
     .filter(arr => arr < 0)
     .reduce((acc, arr) => acc + arr, 0);
-  labelSumOut.textContent = `${outFlow}€`;
+  labelSumOut.textContent = `${outFlow.toFixed(2)}€`;
 
   const interest = account.movements
     .filter((arr, i, array) => arr > 0)
     .map(arr => (arr * account.interestRate) / 100)
     .filter(arr => arr >= 1)
     .reduce((acc, arr) => acc + arr, 0);
-  labelSumInterest.textContent = `${interest}€`;
+  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
 };
 
 //////////////////////////////// Implementing Login Functionality //////////////////////////////////////
@@ -226,7 +226,7 @@ btnClose.addEventListener('click', function (e) {
 
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
-  const loanAmt = Number(inputLoanAmount.value);
+  const loanAmt = Math.floor(inputLoanAmount.value);
   console.log(loanAmt);
   ////////////////////////////////////// Wrote Wrong logic/////////////////////////////////
 
