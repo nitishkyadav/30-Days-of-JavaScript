@@ -64,7 +64,7 @@ console.log(getComputedStyle(message).height);
 /////////////////////////////Changing CSS Variable values///////////////////////////////////////
 
 document.documentElement.style.setProperty('--color-primary', 'orangered');
-
+console.log(document.documentElement.style.getPropertyValue('--color-primary'));
 //////////////////////////////////Attributes///////////////////////////////////////
 
 // Accessing and setting attributes using dot(.) operator
