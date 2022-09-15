@@ -107,3 +107,73 @@ const section1 = document.querySelector('#section--1');
 btnScrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({ behaviour: 'smooth' });
 });
+
+// Implementing Tabbed Component
+
+const tabContainer = document.querySelector('.operations__tab-container');
+const tabs = document.querySelectorAll('.operations__tab');
+const content = document.querySelectorAll('.operations__content');
+
+tabContainer.addEventListener('click', function (e) {
+  // console.log(e.target.dataset);
+  const selectedBtn = e.target.closest('.operations__tab');
+  tabs.forEach(function (tab) {
+    tab.classList.remove('operations__tab--active');
+  });
+  selectedBtn.classList.add('operations__tab--active');
+  let tabCount = selectedBtn.dataset.tab;
+
+  content.forEach(function (item) {
+    item.classList.remove('operations__content--active');
+  });
+  const activeContent = document.querySelector(
+    `.operations__content--${tabCount}`
+  );
+  activeContent.classList.add('operations__content--active');
+});
+
+// Implementing Navigation Bar Hover effect
+
+const nav = document.querySelector('.nav');
+
+//////////////////////////////////////Implementing Sticky NavBar Using Scroll Event/////////////////////////////////////
+// nav.addEventListener('mouseover', function () {});
+
+// Implementing Sticky Navigation
+// const section1XFromTop = section1.getBoundingClientRect().top;
+// window.addEventListener('scroll', function () {
+//   console.log(window.scrollY);
+//   if (scrollY > section1XFromTop) {
+//     nav.classList.add('sticky');
+//     nav.style.opacity = 0.9;
+//   } else {
+//     nav.classList.remove('sticky');
+//     nav.style.opacity = 1;
+//   }
+// });
+
+///////////////////////////// Implementing Sticky Header Using Intersection Observer API/////////////////////
+const navHeight = nav.getBoundingClientRect().height;
+const headerCallback = function (entries, stickyHeader) {
+  entries.forEach(function (entry) {
+    if (!entry.isIntersecting) {
+      console.log(entry);
+      console.log(entry.target);
+      nav.style.opacity = 0.5;
+      nav.classList.add('sticky');
+      nav.style.opacity = 0.9;
+    } else {
+      nav.classList.remove('sticky');
+      nav.style.opacity = 1;
+    }
+  });
+};
+
+const headerOptions = {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
+};
+
+const stickyHeader = new IntersectionObserver(headerCallback, headerOptions);
+stickyHeader.observe(header);
